@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateMarkdown = require('./lib/generateMarkdown.js');
+const drawShape = require('./lib/shapes.js');
 
 const questions = [
 
@@ -25,12 +25,12 @@ const questions = [
         message: 'What color would you like for your shape?',
     }
 ];
-
+    
     function init() {
         inquirer
         .prompt(questions)
         .then((data) => {
-        const markFile = generateMarkdown(data)
+        const markFile = drawShape(data);
             fs.writeFile('./examples/samplelogo.svg', markFile, (err) =>
                 err ? console.log(err) : console.log('Generated logo.svg')
             );
