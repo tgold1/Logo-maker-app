@@ -2,12 +2,14 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const drawShape = require('./lib/shapes.js');
 
+
 const questions = [
 
     {
         type: 'input',
         name: 'text',
         message: 'What letters would you like? (must only be 3 characters)'
+       
     },
     {
         type: 'input',
@@ -30,10 +32,16 @@ const questions = [
         inquirer
         .prompt(questions)
         .then((data) => {
+        if (data.text.length > 3) {
+            console.log ('Must be 3 characters or less')
+        }
+        else {
+        
         const markFile = drawShape(data);
             fs.writeFile('./logo.svg', markFile, (err) =>
                 err ? console.log(err) : console.log('Generated logo.svg')
             );
+        }
         });
     }
 
