@@ -31,7 +31,7 @@ const questions = [
         .prompt(questions)
         .then((data) => {
         const markFile = drawShape(data);
-            fs.writeFile('./examples/samplelogo.svg', markFile, (err) =>
+            fs.writeFile('./logo.svg', markFile, (err) =>
                 err ? console.log(err) : console.log('Generated logo.svg')
             );
         });
