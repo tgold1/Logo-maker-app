@@ -3,6 +3,7 @@ const fs = require('fs');
 const drawShape = require('./lib/shapes.js');
 const MaxLengthInputPrompt = require('inquirer-maxlength-input-prompt');
 
+
 inquirer.registerPrompt('maxlength-input', MaxLengthInputPrompt);
 
 const questions = [
